@@ -159,13 +159,11 @@ img{display:block;}
 .founder{padding:clamp(5rem,10vh,9rem) var(--pad);border-top:1px solid var(--hairline);}
 .founder-grid{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(40px,6vw,84px);align-items:center;}
 .founder-photo{width:100%;aspect-ratio:4/5;object-fit:cover;border:1px solid rgba(242,241,236,0.11);}
-.founder-eyebrow{margin-bottom:26px;}
+.founder-id{margin-top:24px;}
+.founder-name{font-weight:600;font-size:18px;margin-bottom:12px;}
 .founder-body h2{font-weight:700;font-size:clamp(2rem,4.6vw,3.6rem);line-height:1.02;letter-spacing:-0.035em;margin:0 0 30px;}
 .founder-body p{color:var(--muted);font-size:16px;line-height:1.7;margin:0 0 20px;}
 .founder-body p+p{margin:0 0 36px;}
-.founder-sig{padding-top:28px;border-top:1px solid rgba(242,241,236,0.11);}
-.founder-sig .name{font-weight:600;font-size:18px;}
-.founder-sig .role{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--dim);letter-spacing:0.1em;margin-top:5px;}
 
 /* ---------- contact ---------- */
 .contact{padding:clamp(7rem,15vh,13rem) var(--pad) clamp(4rem,8vh,7rem);border-top:1px solid var(--hairline);}
@@ -415,17 +413,16 @@ img{display:block;}
   <div class="founder-grid">
     <div class="reveal">
       <img class="founder-photo" src="assets/founder.jpg" alt="Akeem O., founder of seyiHQ">
+      <div class="founder-id">
+        <div class="founder-name">Akeem O.</div>
+        <div class="eyebrow">FOUNDER</div>
+      </div>
     </div>
     <div class="reveal d1 founder-body">
-      <div class="eyebrow founder-eyebrow">FOUNDER</div>
       <h2>The mind behind the studio.</h2>
       <p>I founded seyiHQ to build the tools I kept wishing existed. I set the direction, design the products, and ship the work that carries the studio forward.</p>
       <p>My conviction is simple. The best tools come from people who have done the work, not just studied it. That belief shapes everything seyiHQ makes, and where I am taking it next.</p>
       <p>The goal is a studio known for software that understands the job, built for the people who actually do it.</p>
-      <div class="founder-sig">
-        <div class="name">Akeem O.</div>
-        <div class="role">Founder</div>
-      </div>
     </div>
   </div>
 </section>
