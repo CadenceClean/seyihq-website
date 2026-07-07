@@ -9,6 +9,12 @@ desktop.ini
 *.swp
 *~
 
+# Local tooling (Claude Code preview config, etc.)
+.claude/
+
+# Design handoff bundle (reference only, not part of the deployed site)
+design_handoff_seyihq_website/
+
 # Logs
 *.log
 npm-debug.log*
