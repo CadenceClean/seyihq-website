@@ -46,9 +46,6 @@ a:hover{color:#ffffff;}
 ::selection{background:var(--cream);color:var(--bg);}
 img{display:block;}
 
-/* ---------- progress bar ---------- */
-.progress{position:fixed;top:0;left:0;width:100%;height:2px;background:var(--cream);transform:scaleX(0);transform-origin:0 50%;z-index:100;}
-
 /* ---------- nav ---------- */
 .nav{position:fixed;top:0;left:0;width:100%;display:flex;align-items:center;justify-content:space-between;
   padding:20px var(--pad);z-index:90;background:rgba(26,30,35,0);border-bottom:1px solid rgba(242,241,236,0);
@@ -148,8 +145,6 @@ img{display:block;}
 </style>
 </head>
 <body>
-
-<div class="progress" data-progress></div>
 
 <nav class="nav" data-nav>
   <a href="index.html" class="nav-brand" aria-label="seyiHQ home">
@@ -254,7 +249,6 @@ img{display:block;}
   var navEl = document.querySelector('[data-nav]');
   var navToggle = document.querySelector('[data-nav-toggle]');
   var mobileMenu = document.querySelector('[data-mobile-menu]');
-  var bar = document.querySelector('[data-progress]');
 
   function closeMenu(){
     if (navEl) navEl.classList.remove('open');
@@ -284,12 +278,9 @@ img{display:block;}
     reveals.forEach(function(el){ el.classList.add('shown'); });
   }
 
-  // Progress bar + nav scrolled state
+  // Nav scrolled state
   function onScroll(){
     var y = window.scrollY || window.pageYOffset || 0;
-    var vh = window.innerHeight || 1;
-    var h = (document.documentElement.scrollHeight - vh) || 1;
-    if (bar) bar.style.transform = 'scaleX(' + Math.min(1, Math.max(0, y / h)) + ')';
     if (navEl){
       if (y > 60) navEl.classList.add('scrolled');
       else navEl.classList.remove('scrolled');
