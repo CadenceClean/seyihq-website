@@ -66,24 +66,27 @@
     </svg>
   </div>
   <h1>Get Formavo</h1>
-  <p class="sub" id="status">Choose your store below.</p>
+  <p class="sub" id="status">Available on iPhone and Android.</p>
   <a class="btn primary" id="ios" href="https://apps.apple.com/gb/app/formavo/id6791264741">Download on the App Store</a>
   <a class="btn secondary" id="android" href="https://play.google.com/store/apps/details?id=com.seyihq.formavo.twa">Get it on Google Play</a>
-  <p class="foot"><a href="https://seyihq.com">seyiHQ</a></p>
+  <p class="foot"><a href="https://www.seyihq.com">seyiHQ</a></p>
 </main>
 <script>
 (function () {
-  var APP_STORE = "https://apps.apple.com/gb/app/formavo/id6791264741";
-  var PLAY_STORE = "https://play.google.com/store/apps/details?id=com.seyihq.formavo.twa";
   var ua = navigator.userAgent || "";
   var isIOS = /iPad|iPhone|iPod/.test(ua) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
   var isAndroid = /Android/i.test(ua);
+  var ios = document.getElementById("ios");
+  var android = document.getElementById("android");
+  var status = document.getElementById("status");
+
   if (isIOS) {
-    document.getElementById("status").textContent = "Opening the App Store.";
-    window.location.replace(APP_STORE);
+    android.style.display = "none";
+    status.textContent = "Available on the App Store.";
   } else if (isAndroid) {
-    document.getElementById("status").textContent = "Opening Google Play.";
-    window.location.replace(PLAY_STORE);
+    ios.style.display = "none";
+    android.className = "btn primary";
+    status.textContent = "Available on Google Play.";
   }
 })();
 </script>
