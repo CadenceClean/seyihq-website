@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Get Formavo</title>
-<meta name="description" content="Download Formavo for iPhone and Android.">
+<meta name="description" content="Get fit around your busy schedules. Download Formavo on the App Store or Google Play.">
 <meta name="robots" content="noindex">
 <style>
   :root {
@@ -12,7 +12,6 @@
     --offwhite: #F2F1EC;
     --lime: #C8F442;
     --muted: #8A9099;
-    --line: #2C3138;
   }
   * { box-sizing: border-box; }
   html, body { margin: 0; padding: 0; height: 100%; }
@@ -26,7 +25,7 @@
     padding: 32px 24px;
     -webkit-font-smoothing: antialiased;
   }
-  .card { width: 100%; max-width: 380px; text-align: center; }
+  .card { width: 100%; max-width: 400px; text-align: center; }
   .mark {
     width: 84px; height: 84px; border-radius: 20px;
     background: var(--lime);
@@ -34,24 +33,22 @@
     margin: 0 auto 24px;
   }
   .mark svg { width: 46px; height: 46px; }
-  h1 { font-size: 26px; font-weight: 600; letter-spacing: 0.2px; margin: 0 0 8px; }
-  .sub { font-size: 15px; line-height: 1.5; color: var(--muted); margin: 0 0 32px; }
-  .btn {
-    display: block; width: 100%;
-    padding: 15px 20px; margin-bottom: 12px;
-    border-radius: 12px;
-    font-size: 16px; font-weight: 600;
-    text-decoration: none;
-    transition: transform 0.15s ease;
+  h1 { font-size: 26px; font-weight: 600; letter-spacing: 0.2px; margin: 0 0 10px; }
+  .tagline { font-size: 15px; line-height: 1.5; color: var(--muted); margin: 0 0 32px; }
+  .badges {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
   }
-  .btn:active { transform: scale(0.98); }
-  .btn.primary { background: var(--lime); color: var(--charcoal); }
-  .btn.secondary { background: transparent; color: var(--offwhite); border: 1px solid var(--line); }
-  .btn:focus-visible { outline: 2px solid var(--lime); outline-offset: 3px; }
-  .foot { margin-top: 28px; font-size: 13px; }
+  .badges a { display: inline-flex; align-items: center; }
+  .badges a:focus-visible { outline: 2px solid var(--lime); outline-offset: 4px; border-radius: 6px; }
+  .badge-apple { height: 44px; width: auto; display: block; }
+  .badge-google { height: 66px; width: auto; display: block; margin: -11px 0; }
+  .foot { margin-top: 32px; font-size: 13px; }
   .foot a { color: var(--muted); text-decoration: none; }
   .foot a:hover { color: var(--offwhite); }
-  @media (prefers-reduced-motion: reduce) { .btn { transition: none; } }
 </style>
 </head>
 <body>
@@ -66,29 +63,16 @@
     </svg>
   </div>
   <h1>Get Formavo</h1>
-  <p class="sub" id="status">Available on iPhone and Android.</p>
-  <a class="btn primary" id="ios" href="https://apps.apple.com/gb/app/formavo/id6791264741">Download on the App Store</a>
-  <a class="btn secondary" id="android" href="https://play.google.com/store/apps/details?id=com.seyihq.formavo.twa">Get it on Google Play</a>
+  <p class="tagline">Get fit around your busy schedules</p>
+  <div class="badges">
+    <a href="https://apps.apple.com/gb/app/formavo/id6791264741">
+      <img class="badge-apple" src="badge-app-store.svg" alt="Download Formavo on the App Store">
+    </a>
+    <a href="https://play.google.com/store/apps/details?id=com.seyihq.formavo.twa">
+      <img class="badge-google" src="badge-google-play.png" alt="Get Formavo on Google Play">
+    </a>
+  </div>
   <p class="foot"><a href="https://www.seyihq.com">seyiHQ</a></p>
 </main>
-<script>
-(function () {
-  var ua = navigator.userAgent || "";
-  var isIOS = /iPad|iPhone|iPod/.test(ua) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
-  var isAndroid = /Android/i.test(ua);
-  var ios = document.getElementById("ios");
-  var android = document.getElementById("android");
-  var status = document.getElementById("status");
-
-  if (isIOS) {
-    android.style.display = "none";
-    status.textContent = "Available on the App Store.";
-  } else if (isAndroid) {
-    ios.style.display = "none";
-    android.className = "btn primary";
-    status.textContent = "Available on Google Play.";
-  }
-})();
-</script>
 </body>
 </html>
