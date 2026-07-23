@@ -125,6 +125,12 @@ img{display:block;}
 .reg-actions{display:flex;align-items:center;gap:30px;flex-wrap:wrap;}
 .open-btn{border:1px solid rgba(242,241,236,0.28);color:var(--cream);padding:15px 26px;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.08em;transition:background .25s ease,color .25s ease;}
 .open-btn:hover{background:var(--cream);color:var(--bg);}
+.reg-actions.store{gap:14px;}
+.reg-actions.store .status{margin-left:16px;}
+.reg-actions .store-badge{display:inline-flex;align-items:center;}
+.reg-actions .store-badge:focus-visible{outline:2px solid var(--cream);outline-offset:4px;}
+.badge-apple{height:44px;width:auto;display:block;}
+.badge-google{height:66px;width:auto;display:block;margin:-11px 0;}
 .soon-btn{border:1px solid rgba(242,241,236,0.14);color:var(--dim);padding:15px 26px;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.08em;}
 .status{display:flex;align-items:center;gap:9px;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.12em;}
 .status.live{color:var(--live);}
@@ -301,9 +307,13 @@ img{display:block;}
         <div class="reg-card" data-reg-card>
           <h3>Formavo<img src="assets/formavo.png" alt="Formavo logo"></h3>
           <p class="reg-desc">Fitness and nutrition built for shift workers and beginners. Progression that fits real schedules.</p>
-          <div class="reg-actions">
-            <a href="https://apps.apple.com/gb/app/formavo/id6791264741" class="open-btn" target="_blank" rel="noopener">App Store</a>
-            <a href="https://play.google.com/store/apps/details?id=com.seyihq.formavo.twa" class="open-btn" target="_blank" rel="noopener">Google Play</a>
+          <div class="reg-actions store">
+            <a href="https://apps.apple.com/gb/app/formavo/id6791264741" class="store-badge" target="_blank" rel="noopener">
+              <img class="badge-apple" src="/assets/badge-app-store.svg" alt="Download Formavo on the App Store">
+            </a>
+            <a href="https://play.google.com/store/apps/details?id=com.seyihq.formavo.twa" class="store-badge" target="_blank" rel="noopener">
+              <img class="badge-google" src="/assets/badge-google-play.png" alt="Get Formavo on Google Play">
+            </a>
             <span class="status live"><span class="dot"></span>LIVE</span>
           </div>
         </div>
@@ -326,8 +336,17 @@ img{display:block;}
         <div class="reg-card" data-reg-card>
           <h3>Realivo<img src="assets/realivo.png" alt="Realivo logo"></h3>
           <p class="reg-desc">Proof of clean documentation. The record that shows the work was done, without the paperwork.</p>
-          <div class="reg-actions">
-            <a href="https://realivo.seyihq.com" class="open-btn">OPEN →</a>
+          <div class="reg-actions store">
+            <!-- APP STORE BADGE: switch on when Apple approves Realivo.
+                 Replace APPLE_APP_ID_HERE with the numeric App ID from App Store Connect,
+                 then delete this comment wrapper.
+            <a href="https://apps.apple.com/gb/app/realivo/idAPPLE_APP_ID_HERE" class="store-badge" target="_blank" rel="noopener">
+              <img class="badge-apple" src="/assets/badge-app-store.svg" alt="Download Realivo on the App Store">
+            </a>
+            -->
+            <a href="https://play.google.com/store/apps/details?id=com.seyihq.realivo" class="store-badge" target="_blank" rel="noopener">
+              <img class="badge-google" src="/assets/badge-google-play.png" alt="Get Realivo on Google Play">
+            </a>
             <span class="status live"><span class="dot"></span>LIVE</span>
           </div>
         </div>
