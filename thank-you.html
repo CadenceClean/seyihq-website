@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Application received | seyiHQ</title>
+<meta name="description" content="Thanks for applying to seyiHQ. We read every application and will be in touch if it looks like a fit.">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="Application received | seyiHQ">
+<meta property="og:description" content="Thanks for applying to seyiHQ. We read every application.">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/svg+xml" href="seyihq-favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#1a1e23;          /* charcoal background */
+  --surface:#21262d;     /* panel / hover surface */
+  --cream:#f2f1ec;       /* text cream */
+  --muted:#aeb4bd;       /* muted body text */
+  --muted-2:#9aa0aa;     /* secondary muted */
+  --dim:#6b727c;         /* dim / labels */
+  --dim-2:#4a505a;       /* darkest dim */
+  --disabled:#c3c8cf;    /* coming-soon name */
+  --hairline:rgba(242,241,236,0.09);
+  --live:#5fb08a;        /* status LIVE */
+  --build:#b8862f;       /* status IN BUILD */
+  --ghost:rgba(242,241,236,0.045);
+  --pad:clamp(20px,5vw,64px);
+  --ease:cubic-bezier(.16,1,.3,1);
+}
+
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+html{overflow-x:clip;}
+body{
+  background:var(--bg);
+  color:var(--cream);
+  font-family:'Space Grotesk',sans-serif;
+  overflow-x:clip;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+a{color:var(--cream);text-decoration:none;}
+a:hover{color:#ffffff;}
+::selection{background:var(--cream);color:var(--bg);}
+img{display:block;}
+
+/* ---------- nav ---------- */
+.nav{position:fixed;top:0;left:0;width:100%;display:flex;align-items:center;justify-content:space-between;
+  padding:20px var(--pad);z-index:90;background:rgba(26,30,35,0);border-bottom:1px solid rgba(242,241,236,0);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);transition:background .4s ease,border-color .4s ease;}
+.nav.scrolled{background:rgba(26,30,35,0.82);border-bottom-color:var(--hairline);}
+.wordmark{color:var(--cream);height:22px;width:auto;}
+.nav-brand{display:flex;align-items:center;}
+.nav-links{display:flex;gap:clamp(16px,2.4vw,42px);align-items:center;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.14em;}
+.nav-links a{color:var(--muted-2);}
+.nav-links a:hover{color:var(--cream);}
+.nav-cta{color:var(--bg)!important;background:var(--cream);border:1px solid var(--cream);padding:10px 18px;letter-spacing:0.14em;white-space:nowrap;font-weight:500;transition:background .25s ease,border-color .25s ease;}
+.nav-cta:hover{background:#ffffff;border-color:#ffffff;}
+
+/* mobile hamburger + dropdown (shown only below 768px via media query) */
+.nav-toggle{display:none;flex-direction:column;justify-content:center;gap:6px;width:34px;height:34px;padding:0;background:none;border:0;cursor:pointer;}
+.nav-toggle span{display:block;width:24px;height:1.5px;background:var(--cream);transition:transform .3s var(--ease),opacity .2s ease,background .25s ease;}
+.nav-toggle:hover span{background:#ffffff;}
+.mobile-menu{display:none;}
+
+/* ---------- buttons ---------- */
+.btn-cream{background:var(--cream);color:var(--bg);padding:16px 28px;font-weight:600;font-size:15px;transition:background .25s ease;}
+.btn-cream:hover{background:#ffffff;color:var(--bg);}
+
+/* ---------- shared section bits ---------- */
+.eyebrow{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.24em;color:var(--muted);font-weight:600;display:flex;align-items:center;gap:14px;}
+
+/* ---------- thank-you page ---------- */
+.thanks{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:clamp(130px,20vh,190px) var(--pad) clamp(5rem,10vh,8rem);}
+.thanks-inner{max-width:660px;width:100%;}
+.thanks .eyebrow{margin-bottom:28px;}
+.thanks-title{font-weight:700;font-size:clamp(2.6rem,7vw,5rem);line-height:1.0;letter-spacing:-0.04em;margin:0 0 26px;}
+.thanks-line{color:var(--muted);font-size:clamp(1.1rem,1.8vw,1.4rem);line-height:1.5;margin:0 0 clamp(38px,6vh,54px);max-width:560px;}
+.thanks .btn-cream{display:inline-block;}
+
+/* ---------- footer ---------- */
+.footer{padding:clamp(3rem,6vh,5rem) var(--pad) 3rem;border-top:1px solid var(--hairline);}
+.footer-grid{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:44px;}
+.footer-brand{grid-column:1 / -1;max-width:340px;}
+.footer-brand .wordmark{height:34px;margin-bottom:20px;}
+.footer-brand p{color:#7c828b;font-size:14px;line-height:1.6;margin:0;}
+.footer-col-title{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.18em;color:var(--dim);margin-bottom:18px;}
+.footer-links{display:flex;flex-direction:column;gap:11px;font-size:14px;}
+.footer-links a{color:var(--muted);}
+.footer-links a:hover{color:var(--cream);}
+.footer-links span{color:var(--dim);}
+.footer-col.company .footer-links span{color:#7c828b;}
+.footer-bottom{max-width:1240px;margin:56px auto 0;padding-top:26px;border-top:1px solid var(--hairline);
+  font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.06em;color:var(--dim);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+
+/* ---------- mobile nav (below 768px) ---------- */
+@media (max-width:767px){
+  .nav-links{display:none;}
+  .nav-toggle{display:flex;}
+  .mobile-menu{
+    display:block;position:absolute;top:100%;left:0;right:0;
+    background:rgba(26,30,35,0.97);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+    border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline);
+    padding:4px var(--pad) 22px;
+    opacity:0;visibility:hidden;transform:translateY(-8px);
+    transition:opacity .25s ease,transform .25s ease,visibility .25s ease;
+  }
+  .nav.open .mobile-menu{opacity:1;visibility:visible;transform:translateY(0);}
+  .mobile-menu a{
+    display:block;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:0.14em;
+    color:var(--cream);padding:18px 2px;border-bottom:1px solid var(--hairline);
+  }
+  .mobile-menu a:hover{color:#ffffff;}
+  .mobile-menu .mobile-cta{
+    border-bottom:0;margin-top:18px;text-align:center;
+    background:var(--cream);color:var(--bg)!important;border:1px solid var(--cream);
+    padding:16px 18px;font-weight:500;transition:background .25s ease,border-color .25s ease;
+  }
+  .mobile-menu .mobile-cta:hover{background:#ffffff;border-color:#ffffff;}
+  /* hamburger morphs to an X when open */
+  .nav.open .nav-toggle span:nth-child(1){transform:translateY(7.5px) rotate(45deg);}
+  .nav.open .nav-toggle span:nth-child(2){opacity:0;}
+  .nav.open .nav-toggle span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg);}
+}
+
+@media (prefers-reduced-motion:reduce){
+  *{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav" data-nav>
+  <a href="index.html" class="nav-brand" aria-label="seyiHQ home">
+    <img class="wordmark" src="seyihq-logo-nav.svg" alt="SEY/HQ" width="98" height="22">
+  </a>
+  <div class="nav-links">
+    <a href="index.html#registry">PRODUCTS</a>
+    <a href="story.html">STORY</a>
+    <a href="index.html#method">METHOD</a>
+    <a href="index.html#founder">FOUNDER</a>
+    <a href="careers.html">CAREERS</a>
+    <a href="index.html#contact" class="nav-cta">GET IN TOUCH</a>
+  </div>
+  <button class="nav-toggle" type="button" data-nav-toggle aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="mobile-menu" id="mobile-menu" data-mobile-menu>
+    <a href="index.html#registry">PRODUCTS</a>
+    <a href="story.html">STORY</a>
+    <a href="index.html#method">METHOD</a>
+    <a href="index.html#founder">FOUNDER</a>
+    <a href="careers.html">CAREERS</a>
+    <a href="index.html#contact" class="mobile-cta">GET IN TOUCH</a>
+  </div>
+</nav>
+
+<!-- THANK YOU -->
+<main class="thanks">
+  <div class="thanks-inner">
+    <div class="eyebrow">APPLICATION RECEIVED</div>
+    <h1 class="thanks-title">Thanks, we have got it.</h1>
+    <p class="thanks-line">We read every application. If it looks like a fit, we will be in touch.</p>
+    <a href="index.html" class="btn-cream">Back to home</a>
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <img class="wordmark" src="seyihq-logo-nav.svg" alt="SEY/HQ" width="151" height="34">
+      <p>Tools for the work most software forgets. Built from the front line, in Derby.</p>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">PRODUCTS</div>
+      <div class="footer-links">
+        <a href="https://formavo.seyihq.com">Formavo</a>
+        <a href="https://banded.seyihq.com">Banded</a>
+        <a href="https://realivo.seyihq.com">Realivo</a>
+        <span>Quoterna · in build</span>
+      </div>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">STUDIO</div>
+      <div class="footer-links">
+        <a href="index.html#origin">Origin</a>
+        <a href="index.html#method">Method</a>
+        <a href="index.html#founder">Founder</a>
+        <a href="careers.html">Careers</a>
+        <a href="index.html#contact">Contact</a>
+      </div>
+    </div>
+    <div class="footer-col company">
+      <div class="footer-col-title">COMPANY</div>
+      <div class="footer-links">
+        <span>seyiHQ Limited</span>
+        <span>Company no. 17293610</span>
+        <span>Derby, England</span>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 SEYIHQ LIMITED. REGISTERED IN ENGLAND AND WALES.</span>
+    <span>SOFTWARE FROM THE FRONT LINE.</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var navEl = document.querySelector('[data-nav]');
+  var navToggle = document.querySelector('[data-nav-toggle]');
+  var mobileMenu = document.querySelector('[data-mobile-menu]');
+
+  function closeMenu(){
+    if (navEl) navEl.classList.remove('open');
+    if (navToggle){ navToggle.setAttribute('aria-expanded','false'); navToggle.setAttribute('aria-label','Open menu'); }
+  }
+  if (navToggle && navEl){
+    navToggle.addEventListener('click', function(){
+      var open = navEl.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      navToggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    });
+  }
+  if (mobileMenu){
+    mobileMenu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', closeMenu); });
+  }
+
+  // Nav scrolled state
+  function onScroll(){
+    var y = window.scrollY || window.pageYOffset || 0;
+    if (navEl){
+      if (y > 60) navEl.classList.add('scrolled');
+      else navEl.classList.remove('scrolled');
+    }
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+  onScroll();
+})();
+</script>
+</body>
+</html>

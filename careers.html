@@ -124,8 +124,37 @@ img{display:block;}
 .apply-section{margin-top:clamp(80px,14vh,140px);scroll-margin-top:96px;}
 .apply-section .eyebrow{margin-bottom:26px;}
 .apply-intro{color:var(--muted);font-size:clamp(1.1rem,1.6vw,1.3rem);line-height:1.55;margin:0 0 clamp(34px,5vh,52px);max-width:620px;}
-.tally-wrap{width:100%;}
-.tally-wrap iframe{width:100%;border:0;background:transparent;display:block;}
+
+/* native application form */
+.apply-form{display:flex;flex-direction:column;gap:clamp(22px,3.4vh,30px);max-width:640px;width:100%;}
+.field{display:flex;flex-direction:column;gap:10px;}
+.field-label{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);font-weight:600;}
+.field input,.field select,.field textarea{
+  width:100%;background:#23282f;border:1px solid var(--hairline);border-radius:8px;color:var(--cream);
+  font-family:'Space Grotesk',sans-serif;font-size:16px;line-height:1.5;padding:14px 16px;
+  transition:border-color .25s ease,background .25s ease;-webkit-appearance:none;appearance:none;}
+.field input:hover,.field select:hover,.field textarea:hover{border-color:rgba(242,241,236,0.22);}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--cream);background:#262c34;}
+.field input::placeholder,.field textarea::placeholder{color:var(--dim);}
+.field textarea{resize:vertical;min-height:132px;}
+.field select{cursor:pointer;padding-right:44px;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%23aeb4bd' stroke-width='1.5'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 16px center;}
+.field select:required:invalid{color:var(--dim);}
+.field select option{color:var(--cream);background:var(--surface);}
+.field select option[disabled]{color:var(--dim);}
+.field-help{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.06em;color:var(--dim);margin-top:2px;}
+.field input[type="file"]{padding:11px 14px;font-size:14px;color:var(--muted);cursor:pointer;}
+.field input[type="file"]::file-selector-button{
+  font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;font-weight:600;
+  background:transparent;color:var(--cream);border:1px solid rgba(242,241,236,0.28);border-radius:6px;
+  padding:9px 16px;margin-right:14px;cursor:pointer;transition:background .25s ease,color .25s ease;}
+.field input[type="file"]::file-selector-button:hover{background:var(--cream);color:var(--bg);}
+.field.consent{flex-direction:row;align-items:flex-start;gap:13px;}
+.field.consent input[type="checkbox"]{width:20px;height:20px;min-width:20px;flex:0 0 auto;margin-top:2px;padding:0;border-radius:5px;accent-color:var(--cream);cursor:pointer;}
+.field.consent label{font-family:'Space Grotesk',sans-serif;text-transform:none;letter-spacing:0;font-size:15px;line-height:1.5;color:var(--muted);font-weight:400;}
+.apply-form button[type="submit"]{align-self:flex-start;border:0;cursor:pointer;font-family:'Space Grotesk',sans-serif;margin-top:6px;}
+
 .apply-note{font-size:13px;line-height:1.6;color:var(--dim);margin:clamp(24px,4vh,36px) 0 0;max-width:600px;}
 
 /* ---------- footer ---------- */
@@ -303,17 +332,58 @@ img{display:block;}
     <section id="apply" class="apply-section reveal">
       <div class="eyebrow">APPLY</div>
 
-      <div class="tally-wrap">
-        <iframe
-          data-tally-src="https://tally.so/embed/pb6gOb?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
-          loading="lazy"
-          width="100%"
-          height="500"
-          frameborder="0"
-          marginheight="0"
-          marginwidth="0"
-          title="seyiHQ careers application"></iframe>
-      </div>
+      <form class="apply-form" action="https://formsubmit.co/careers@seyihq.com" method="POST" enctype="multipart/form-data">
+        <input type="hidden" name="_subject" value="New application, seyiHQ Careers">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_next" value="https://www.seyihq.com/thank-you.html">
+        <input type="text" name="_honey" style="display:none">
+
+        <div class="field">
+          <label class="field-label" for="full-name">Full name</label>
+          <input type="text" id="full-name" name="Full Name" autocomplete="name" required>
+        </div>
+
+        <div class="field">
+          <label class="field-label" for="role">Which role are you applying for</label>
+          <select id="role" name="Role" required>
+            <option value="" disabled selected>Select a role</option>
+            <option value="Digital Marketing Executive">Digital Marketing Executive</option>
+            <option value="Customer Support Assistant">Customer Support Assistant</option>
+            <option value="Business Development Manager">Business Development Manager</option>
+            <option value="Virtual Assistant">Virtual Assistant</option>
+            <option value="Something else">Something else</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label class="field-label" for="email">Email address</label>
+          <input type="email" id="email" name="Email" autocomplete="email" required>
+        </div>
+
+        <div class="field">
+          <label class="field-label" for="phone">Phone number</label>
+          <input type="tel" id="phone" name="Phone" autocomplete="tel" required>
+        </div>
+
+        <div class="field">
+          <label class="field-label" for="cv">Upload your CV</label>
+          <input type="file" id="cv" name="CV" accept=".pdf,.doc,.docx" required>
+          <span class="field-help">PDF or Word, 10MB maximum</span>
+        </div>
+
+        <div class="field">
+          <label class="field-label" for="experience">What have you done that makes you right for this</label>
+          <textarea id="experience" name="Experience" rows="5" required></textarea>
+        </div>
+
+        <div class="field consent">
+          <input type="checkbox" id="consent" name="Consent" value="Yes" required>
+          <label for="consent">I agree to seyiHQ storing my details to assess this application</label>
+        </div>
+
+        <button type="submit" class="btn-cream">Send application</button>
+      </form>
 
       <p class="apply-note">We use your details only to assess your application and delete them within six months unless you join us.</p>
     </section>
@@ -406,23 +476,6 @@ img{display:block;}
   window.addEventListener('scroll', onScroll, { passive: true });
   window.addEventListener('resize', onScroll);
   onScroll();
-})();
-</script>
-
-<!-- Tally embed loader: resizes the iframe to fit its content -->
-<script>
-(function(){
-  var d=document, w="https://tally.so/widgets/embed.js";
-  var v=function(){
-    if(typeof Tally!=="undefined"){ Tally.loadEmbeds(); }
-    else{
-      d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach(function(e){ e.src=e.dataset.tallySrc; });
-    }
-  };
-  if(typeof Tally!=="undefined"){ v(); }
-  else if(d.querySelector('script[src="'+w+'"]')==null){
-    var s=d.createElement("script"); s.src=w; s.onload=v; s.onerror=v; d.body.appendChild(s);
-  }
 })();
 </script>
 </body>
